@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Niswa ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Quicksand:wght@400;500;600;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Quicksand',sans-serif;
+color:white;
+overflow-x:hidden;
+background:#000;
+}
+
+/* VIDEO */
+
+#bg-video{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-2;
+}
+
+body::before{
+content:'';
+position:fixed;
+inset:0;
+background:linear-gradient(
+180deg,
+rgba(255,80,140,.35),
+rgba(100,0,60,.75)
+);
+z-index:-1;
+}
+
+/* WELCOME */
+
+#welcome{
+position:fixed;
+inset:0;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#ff4d8d;
+z-index:9999;
+}
+
+.welcome-card{
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(15px);
+padding:50px;
+border-radius:25px;
+text-align:center;
+}
+
+.welcome-card h1{
+margin-bottom:15px;
+}
+
+.welcome-card button{
+margin-top:20px;
+padding:15px 35px;
+border:none;
+border-radius:40px;
+cursor:pointer;
+font-weight:bold;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.glass{
+max-width:800px;
+text-align:center;
+padding:60px;
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(20px);
+border-radius:30px;
+}
+
+.glass h1{
+font-size:4rem;
+font-family:'Playfair Display',serif;
+}
+
+.glass h2{
+font-size:3rem;
+color:#ffd166;
+margin:15px 0;
+}
+
+.glass p{
+line-height:1.8;
+}
+
+.scroll-btn{
+display:inline-block;
+margin-top:25px;
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+/* COUNTDOWN */
+
+section{
+padding:100px 10%;
+text-align:center;
+}
+
+.countdown-box{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:20px;
+margin-top:40px;
+}
+
+.time{
+background:rgba(255,255,255,.15);
+padding:25px;
+border-radius:20px;
+width:120px;
+}
+
+.time span{
+display:block;
+font-size:2rem;
+font-weight:bold;
+color:#ffd166;
+}
+
+/* LETTER */
+
+.letter-box{
+max-width:850px;
+margin:auto;
+background:white;
+color:#333;
+padding:50px;
+border-radius:25px;
+line-height:2;
+text-align:left;
+}
+
+.signature{
+font-family:'Caveat',cursive;
+font-size:2rem;
+color:#ff4d8d;
+margin-top:20px;
+}
+
+/* SLIDER */
+
+.slider{
+    width:90%;
+    max-width:1000px;
+
+    aspect-ratio:16/9;
+
+    margin:auto;
+    overflow:hidden;
+    position:relative;
+
+    border-radius:25px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+}
+
+.slide{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    opacity:0;
+    transition:1s ease;
+}
+
+.slide.active{
+    opacity:1;
+}
+
+/* TIMELINE */
+
+.timeline{
+max-width:900px;
+margin:auto;
+position:relative;
+}
+
+.timeline::before{
+content:'';
+position:absolute;
+left:50%;
+top:0;
+width:4px;
+height:100%;
+background:white;
+transform:translateX(-50%);
+}
+
+.timeline-item{
+width:45%;
+background:rgba(255,255,255,.15);
+padding:25px;
+border-radius:20px;
+margin:30px 0;
+backdrop-filter:blur(10px);
+}
+
+.timeline-item:nth-child(odd){
+margin-right:auto;
+}
+
+.timeline-item:nth-child(even){
+margin-left:auto;
+}
+
+/* POLAROID */
+
+.polaroid-gallery{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:40px;
+}
+
+.polaroid{
+background:white;
+padding:15px;
+width:280px;
+border-radius:10px;
+box-shadow:0 15px 35px rgba(0,0,0,.3);
+cursor:pointer;
+transition:.4s;
+}
+
+.polaroid:hover{
+transform:scale(1.08);
+}
+
+.polaroid img{
+width:100%;
+height:320px;
+object-fit:cover;
+}
+
+.polaroid p{
+color:#333;
+font-family:'Caveat',cursive;
+font-size:1.6rem;
+margin-top:10px;
+}
+
+.p1{transform:rotate(-5deg);}
+.p2{transform:rotate(5deg);}
+.p3{transform:rotate(-3deg);}
+.p4{transform:rotate(4deg);}
+.p5{transform:rotate(-4deg);}
+.p6{transform:rotate(3deg);}
+
+/* LIGHTBOX */
+
+#lightbox{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.95);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:99999;
+}
+
+#lightbox img{
+max-width:90%;
+max-height:90%;
+border-radius:20px;
+}
+
+/* FOOTER */
+
+.footer h2{
+font-size:3rem;
+margin-bottom:20px;
+}
+
+.love-btn{
+margin-top:30px;
+padding:15px 35px;
+border:none;
+border-radius:40px;
+cursor:pointer;
+font-weight:bold;
+}
+
+/* POPUP */
+
+#popup{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:white;
+color:#333;
+padding:40px;
+border-radius:25px;
+max-width:500px;
+width:90%;
+display:none;
+z-index:9999;
+text-align:center;
+}
+
+#popup button{
+margin-top:20px;
+padding:10px 25px;
+}
+
+/* HEARTS */
+
+.heart{
+position:fixed;
+font-size:20px;
+pointer-events:none;
+z-index:999;
+}
+
+@media(max-width:768px){
+
+.glass h1{
+font-size:2.7rem;
+}
+
+.glass h2{
+font-size:2rem;
+}
+
+.timeline::before{
+display:none;
+}
+
+.timeline-item{
+width:100%;
+}
+
+.slider{
+height:300px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div id="welcome">
+<div class="welcome-card">
+<h1>🎂 Selamat Ulang Tahun Sayang ❤️</h1>
+<p>Aku punya sesuatu untukmu...</p>
+<button onclick="startWebsite()">Buka 🎁</button>
+</div>
+</div>
+
+
+
+<audio id="music" loop>
+<source src="/music/nastelbom-happy-birthday-495860.mp3" type="audio/mpeg">
+</audio>
+
+<section class="hero">
+<div class="glass">
+<h1>Happy Birthday</h1>
+<h2>Niswa ❤️</h2>
+<p>
+Hari ini bukan hanya tentang bertambahnya usia,
+tetapi tentang merayakan seseorang yang selalu
+membuat hidupku lebih indah.
+</p>
+<a href="#gallery" class="scroll-btn">Lihat Kenangan Kita ↓</a>
+</div>
+</section>
+
+<section>
+<h2>⏳ Hitung Mundur</h2>
+
+<div class="countdown-box">
+<div class="time"><span id="days">0</span>Hari</div>
+<div class="time"><span id="hours">0</span>Jam</div>
+<div class="time"><span id="minutes">0</span>Menit</div>
+<div class="time"><span id="seconds">0</span>Detik</div>
+</div>
+</section>
+
+<section>
+<h2>💌 Surat Cinta</h2>
+
+<div class="letter-box">
+<p>Selamat ulang tahun cintaku.</p>
+<p>
+Selamat ulang tahun cintaku.❤️🎈🎈🎈🎈
+
+Hari ini adalah hari yang sangat spesial karena dunia pernah menghadirkan seseorang yang begitu berarti dalam hidupku.
+
+Terima kasih karena selalu ada dalam suka maupun duka. Terima kasih telah menjadi rumah ketika dunia terasa melelahkan.
+
+Terima kasih sudah ada dan menjadi bagian dari setiap harinya hidupku. Kehadiranmu bukan sekadar pelengkap, tapi kamu adalah alasan aku ingin menjadi versi terbaik diriku.
+
+Semoga di usia yang baru ini semua impianmu terwujud, kesehatan selalu menyertaimu, dan kebahagiaan tidak pernah meninggalkanmu.
+
+Di hari yang istimewa ini, aku berharap semua yang kamu impikan perlahan jadi nyata. Semoga senyummu selalu ada, hatimu selalu damai, dan cintamu selalu kamu rasakan balik, dari aku
+
+Aku mencintaimu hari ini, esok, dan selamanya ❤️.
+</p>
+<p>
+Semoga semua impianmu tercapai,
+kesehatan selalu menyertaimu,
+dan kebahagiaan selalu ada dalam hidupmu.
+</p>
+
+<p class="signature">
+Aku mencintaimu hari ini, besok, dan selamanya ❤️
+</p>
+</div>
+</section>
+
+<section>
+
+<div class="slider">
+
+<img src="images/foto1.jpeg" class="slide active">
+<img src="images/foto2.jpeg" class="slide">
+<img src="images/foto3.jpeg" class="slide">
+<img src="images/foto4.jpg" class="slide">
+<img src="images/foto5.jpg" class="slide">
+<img src="images/foto6.jpg" class="slide">
+
+</div>
+
+</section>
+
+<section>
+<h2>💖 Perjalanan Kita</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<h3>Pertama Kenal</h3>
+<p>Hari dimana semuanya dimulai.</p>
+</div>
+
+<div class="timeline-item">
+<h3>Mulai Dekat</h3>
+<p>Kita semakin mengenal satu sama lain.</p>
+</div>
+
+<div class="timeline-item">
+<h3>Menjadi Kita</h3>
+<p>Dan sampai hari ini aku bersyukur memilikimu.</p>
+</div>
+
+</div>
+</section>
+
+<section id="gallery">
+
+<h2>📸 Kenangan Kita</h2>
+
+<div class="polaroid-gallery">
+
+<div class="polaroid p1">
+<img src="images/foto1.jpeg">
+<p>Awal Cerita ❤️</p>
+</div>
+
+<div class="polaroid p2">
+<img src="images/foto2.jpeg">
+<p>Senyumanmu ☀️</p>
+</div>
+
+<div class="polaroid p3">
+<img src="images/foto3.jpeg">
+<p>Perjalanan 🚗</p>
+</div>
+
+<div class="polaroid p4">
+<img src="images/foto4.jpg">
+<p>Tawa Kita 😄</p>
+</div>
+
+<div class="polaroid p5">
+<img src="images/foto5.jpg">
+<p>Momen Favorit 🥹</p>
+</div>
+
+<div class="polaroid p6">
+<img src="images/foto6.jpg">
+<p>Selamanya ❤️</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="footer">
+<h2>I Love You Forever ❤️</h2>
+
+<p>Happy Birthday My Love.</p>
+
+<button class="love-btn" onclick="showLove()">
+Klik Aku ❤️
+</button>
+</section>
+
+<div id="popup">
+<h2>💖 Pesan Rahasia 💖</h2>
+<p>
+Terima kasih sudah hadir dalam hidupku.
+Aku mencintaimu lebih dari yang bisa dijelaskan kata-kata.
+</p>
+
+<button onclick="closeLove()">Tutup</button>
+</div>
+
+<div id="lightbox">
+<img id="lightbox-img">
+</div>
+
+<script>
+
+function startWebsite(){
+document.getElementById('welcome').style.display='none';
+document.getElementById('music').play();
+}
+
+function showLove(){
+document.getElementById('popup').style.display='block';
+}
+
+function closeLove(){
+document.getElementById('popup').style.display='none';
+}
+
+const targetDate = new Date("2027-06-16T00:00:00").getTime();
+
+setInterval(()=>{
+
+const now = new Date().getTime();
+
+const distance = targetDate-now;
+
+document.getElementById("days").innerHTML=Math.floor(distance/(1000*60*60*24));
+
+document.getElementById("hours").innerHTML=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+
+document.getElementById("minutes").innerHTML=Math.floor((distance%(1000*60*60))/(1000*60));
+
+document.getElementById("seconds").innerHTML=Math.floor((distance%(1000*60))/1000);
+
+},1000);
+
+const slides=document.querySelectorAll('.slide');
+
+let current=0;
+
+setInterval(()=>{
+
+slides[current].classList.remove('active');
+
+current++;
+
+if(current>=slides.length){
+current=0;
+}
+
+slides[current].classList.add('active');
+
+},3000);
+
+const photos=document.querySelectorAll('.polaroid img');
+
+photos.forEach(photo=>{
+
+photo.onclick=()=>{
+
+document.getElementById('lightbox').style.display='flex';
+
+document.getElementById('lightbox-img').src=photo.src;
+
+}
+
+});
+
+document.getElementById('lightbox').onclick=()=>{
+document.getElementById('lightbox').style.display='none';
+};
+
+setInterval(()=>{
+
+let heart=document.createElement('div');
+
+heart.className='heart';
+
+heart.innerHTML='💖';
+
+heart.style.left=Math.random()*100+'vw';
+
+heart.style.top='-30px';
+
+document.body.appendChild(heart);
+
+let pos=-30;
+
+let run=setInterval(()=>{
+
+pos+=3;
+
+heart.style.top=pos+'px';
+
+if(pos>window.innerHeight){
+
+heart.remove();
+clearInterval(run);
+
+}
+
+},20);
+
+},500);
+
+</script>
+
+</body>
+</html>
